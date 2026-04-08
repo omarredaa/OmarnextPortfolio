@@ -173,12 +173,6 @@ export const Footer = () => {
             className="text-right"
           >
             <div className="flex flex-col items-end space-y-2">
-              <p className="text-gray-600 dark:text-gray-400 flex items-center">
-                Made with <Heart className="w-4 h-4 mx-1 text-red-500" /> by{" "}
-                <span className="font-semibold ml-1 text-gray-900 dark:text-white">
-                  {personalInfo.name}
-                </span>
-              </p>
               <p className="text-gray-600 dark:text-gray-400 text-sm">
                 © {currentYear} All rights reserved.
               </p>

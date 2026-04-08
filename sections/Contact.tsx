@@ -198,7 +198,7 @@ export const Contact = () => {
               <Button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full"
+                className="w-full cursor-pointer"
                 size="lg"
               >
                 {isSubmitting ? "Sending..." : "Send Message"}

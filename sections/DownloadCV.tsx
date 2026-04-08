@@ -124,7 +124,7 @@ export const DownloadCV = ({ specialization }: DownloadCVProps) => {
   const description = getDescription();
 
   return (
-    <section className="py-20 bg-transparent">
+    <section className="py-20 bg-transparent" id="cv">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -211,7 +211,7 @@ export const DownloadCV = ({ specialization }: DownloadCVProps) => {
                 <Button
                   onClick={handleDownload}
                   size="lg"
-                  className="w-full lg:w-auto cursor-pointer"
+                  className="w-full lg:w-auto cursor-pointer flex items-center justify-center"
                 >
                   <Download className="w-5 h-5 mr-2" />
                   Download CV
