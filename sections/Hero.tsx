@@ -48,7 +48,7 @@ export const Hero = () => {
     >
       <ScrollToTop />
       {/* Background gradient animation - only for Hero section */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-50/30 via-transparent to-purple-50/30 dark:from-gray-900/30 dark:via-transparent dark:to-gray-900/30 pointer-events-none">
+      <div className="absolute inset-0 bg-gradient-to-br   dark:from-gray-900/30 dark:via-transparent dark:to-gray-900/30 pointer-events-none">
         <motion.div
           className="absolute top-20 left-20 w-72 h-72 bg-gradient-to-r from-blue-400/10 to-purple-400/10 rounded-full blur-3xl"
           animate={{
@@ -84,19 +84,19 @@ export const Hero = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white mb-4">
+            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold  dark:text-white mb-4">
               Hi, I'm{" "}
               <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                 {personalInfo.name}
               </span>
             </h1>
-            <h2 className="text-xl sm:text-2xl lg:text-3xl text-gray-600 dark:text-gray-300 mb-6">
+            <h2 className="text-xl sm:text-2xl lg:text-3xl  dark:text-gray-300 mb-6">
               {title}
             </h2>
-            <p className="text-base sm:text-lg text-gray-500 dark:text-gray-400 mb-4 max-w-2xl mx-auto lg:mx-0">
+            <p className="text-base sm:text-lg  dark:text-gray-400 mb-4 max-w-2xl mx-auto lg:mx-0">
               {detail}
             </p>
-            <p className="text-lg sm:text-xl text-gray-500 dark:text-gray-400 mb-8 max-w-2xl mx-auto lg:mx-0">
+            <p className="text-lg sm:text-xl  dark:text-gray-400 mb-8 max-w-2xl mx-auto lg:mx-0">
               {personalInfo.tagline}
             </p>
 
@@ -128,7 +128,7 @@ export const Hero = () => {
                 href={personalInfo.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300"
+                className="text-gray-400 hover:text-blue-400 transition-colors duration-300"
               >
                 <FaGithub size={24} />
               </a>
@@ -136,7 +136,7 @@ export const Hero = () => {
                 href={personalInfo.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300"
+                className="text-gray-400 hover:text-blue-400 transition-colors duration-300"
               >
                 <FaLinkedin size={24} />
               </a>

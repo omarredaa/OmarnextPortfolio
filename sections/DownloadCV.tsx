@@ -154,7 +154,7 @@ export const DownloadCV = ({ specialization }: DownloadCVProps) => {
             className="space-y-8"
           >
             <div className=" dark:bg-gray-800 rounded-lg shadow-lg p-8">
-              <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">
+              <h3 className="text-2xl font-semibold  dark:text-white mb-6">
                 What You'll Find
               </h3>
               <div className="grid gap-6">
@@ -173,10 +173,10 @@ export const DownloadCV = ({ specialization }: DownloadCVProps) => {
                       </div>
                     </div>
                     <div>
-                      <h4 className="text-lg font-semibold text-gray-900 dark:text-white">
+                      <h4 className="text-lg font-semibold  dark:text-white">
                         {highlight.title}
                       </h4>
-                      <p className="text-gray-600 dark:text-gray-300">
+                      <p className=" dark:text-gray-300">
                         {highlight.description}
                       </p>
                     </div>
@@ -199,12 +199,10 @@ export const DownloadCV = ({ specialization }: DownloadCVProps) => {
                 <div className="w-20 h-20 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center mx-auto lg:mx-0 mb-6">
                   <FileText className="w-10 h-10 text-white" />
                 </div>
-                <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
+                <h3 className="text-2xl font-semibold  dark:text-white mb-4">
                   Professional CV
                 </h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-6">
-                  {description}
-                </p>
+                <p className=" dark:text-gray-300 mb-6">{description}</p>
               </div>
 
               <div className="space-y-4">
@@ -216,7 +214,7 @@ export const DownloadCV = ({ specialization }: DownloadCVProps) => {
                   <Download className="w-5 h-5 mr-2" />
                   Download CV
                 </Button>
-                <p className="text-sm text-gray-500 dark:text-gray-400">
+                <p className="text-sm  dark:text-gray-400">
                   PDF format • Updated regularly
                 </p>
               </div>

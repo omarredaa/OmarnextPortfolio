@@ -51,7 +51,7 @@ export const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10">
         <div className="flex justify-between items-center h-16">
           <motion.div
-            className="text-2xl font-bold text-blue-600 dark:text-blue-400"
+            className="text-2xl font-bold text-blue-400"
             whileHover={{ scale: 1.05 }}
           >
             Portfolio
@@ -63,7 +63,7 @@ export const Navbar = () => {
               <button
                 key={item.name}
                 onClick={() => scrollToSection(item.href)}
-                className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300 cursor-pointer"
+                className="text-gray-300 hover:text-blue-400 transition-colors duration-300 cursor-pointer"
               >
                 {item.name}
               </button>
@@ -74,7 +74,7 @@ export const Navbar = () => {
           <div className="md:hidden flex items-center space-x-2">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 cursor-pointer"
+              className="text-gray-300 hover:text-blue-400 cursor-pointer"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -97,7 +97,7 @@ export const Navbar = () => {
                 <button
                   key={item.name}
                   onClick={() => scrollToSection(item.href)}
-                  className="block w-full text-left px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300 cursor-pointer"
+                  className="block w-full text-left px-3 py-2 text-gray-300 hover:text-blue-400 transition-colors duration-300 cursor-pointer"
                 >
                   {item.name}
                 </button>

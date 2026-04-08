@@ -26,7 +26,7 @@ export const Projects = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold  dark:text-white mb-4">
             Featured Projects
           </h2>
           <div className="w-20 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto"></div>
@@ -73,13 +73,13 @@ export const Projects = () => {
               </motion.div>
 
               <div className="p-6">
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+                <h3 className="text-xl font-semibold text-white mb-2">
                   {project.title}
                 </h3>
-                <p className="text-sm uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400 font-medium mb-2">
+                <p className="text-sm uppercase tracking-[0.2em] text-blue-400 font-medium mb-2">
                   {projectRole}
                 </p>
-                <p className="text-gray-600 dark:text-gray-300 mb-4">
+                <p className=" dark:text-gray-300 mb-4">
                   {project.description}
                 </p>
 
@@ -87,7 +87,7 @@ export const Projects = () => {
                   {project.techStack.map((tech) => (
                     <span
                       key={tech}
-                      className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-sm rounded-full"
+                      className="px-3 py-1 bg-blue-900 text-blue-200 text-sm rounded-full"
                     >
                       {tech}
                     </span>
@@ -99,7 +99,7 @@ export const Projects = () => {
                     href={project.liveDemo}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors duration-300"
+                    className="flex items-center text-blue-400 hover:text-blue-300 transition-colors duration-300"
                   >
                     <ExternalLink size={16} className="mr-1" />
                     Live Demo
@@ -108,7 +108,7 @@ export const Projects = () => {
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-300 transition-colors duration-300"
+                    className="flex items-center text-gray-400 hover:text-gray-300 transition-colors duration-300"
                   >
                     <FaGithub size={16} className="mr-1" />
                     Code

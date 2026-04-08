@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { Mail, MapPin, Phone } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 import { Button } from "../components/Button";
 import { ContactForm } from "../lib/types";
 import { personalInfo } from "../lib/data";
@@ -43,6 +44,12 @@ export const Contact = () => {
       href: `mailto:${personalInfo.email}`,
     },
     {
+      icon: FaWhatsapp,
+      label: "WhatsApp",
+      value: personalInfo.phone,
+      href: `https://wa.me/${personalInfo.phone.replace(/\D/g, "")}`,
+    },
+    {
       icon: Phone,
       label: "Phone",
       value: personalInfo.phone,
@@ -65,7 +72,7 @@ export const Contact = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
             Get In Touch
           </h2>
           <div className="w-20 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto"></div>
@@ -80,10 +87,10 @@ export const Contact = () => {
             viewport={{ once: true }}
             className="text-center"
           >
-            <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">
+            <h3 className="text-2xl font-semibold text-white mb-6">
               Let's Connect
             </h3>
-            <p className="text-gray-600 dark:text-gray-300 mb-8">
+            <p className=" dark:text-gray-300 mb-8">
               I'm always interested in new opportunities and exciting projects.
               Whether you have a question or just want to say hi, feel free to
               reach out!
@@ -102,15 +109,13 @@ export const Contact = () => {
                   whileHover={{ scale: 1.02 }}
                 >
                   <div className="flex-shrink-0">
-                    <info.icon className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+                    <info.icon className="w-6 h-6 text-blue-400" />
                   </div>
                   <div className="ml-4">
-                    <h4 className="text-sm font-medium text-gray-500 dark:text-gray-400">
+                    <h4 className="text-sm font-medium  dark:text-gray-400">
                       {info.label}
                     </h4>
-                    <p className="text-gray-900 dark:text-white">
-                      {info.value}
-                    </p>
+                    <p className="text-white">{info.value}</p>
                   </div>
                 </motion.a>
               ))}
@@ -129,7 +134,7 @@ export const Contact = () => {
               <div>
                 <label
                   htmlFor="name"
-                  className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                  className="block text-sm font-medium text-gray-300 mb-2"
                 >
                   Name
                 </label>
@@ -137,11 +142,11 @@ export const Contact = () => {
                   type="text"
                   id="name"
                   {...register("name", { required: "Name is required" })}
-                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent  dark:bg-gray-800 text-gray-900 dark:text-white"
+                  className="w-full px-4 py-3 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-transparent bg-gray-800 text-white"
                   placeholder="Your name"
                 />
                 {errors.name && (
-                  <p className="mt-1 text-sm text-red-600 dark:text-red-400">
+                  <p className="mt-1 text-sm text-red-400">
                     {errors.name.message}
                   </p>
                 )}
@@ -150,7 +155,7 @@ export const Contact = () => {
               <div>
                 <label
                   htmlFor="email"
-                  className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                  className="block text-sm font-medium text-gray-300 mb-2"
                 >
                   Email
                 </label>
@@ -164,11 +169,11 @@ export const Contact = () => {
                       message: "Invalid email address",
                     },
                   })}
-                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent  dark:bg-gray-800 text-gray-900 dark:text-white"
+                  className="w-full px-4 py-3 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-transparent bg-gray-800 text-white"
                   placeholder="your.email@example.com"
                 />
                 {errors.email && (
-                  <p className="mt-1 text-sm text-red-600 dark:text-red-400">
+                  <p className="mt-1 text-sm text-red-400">
                     {errors.email.message}
                   </p>
                 )}
@@ -177,7 +182,7 @@ export const Contact = () => {
               <div>
                 <label
                   htmlFor="message"
-                  className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                  className="block text-sm font-medium text-gray-300 mb-2"
                 >
                   Message
                 </label>
@@ -185,11 +190,11 @@ export const Contact = () => {
                   id="message"
                   rows={5}
                   {...register("message", { required: "Message is required" })}
-                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent  dark:bg-gray-800 text-gray-900 dark:text-white resize-none"
+                  className="w-full px-4 py-3 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-transparent bg-gray-800 text-white resize-none"
                   placeholder="Your message..."
                 />
                 {errors.message && (
-                  <p className="mt-1 text-sm text-red-600 dark:text-red-400">
+                  <p className="mt-1 text-sm text-red-400">
                     {errors.message.message}
                   </p>
                 )}
@@ -208,7 +213,7 @@ export const Contact = () => {
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="text-center text-green-600 dark:text-green-400 font-medium"
+                  className="text-center  dark:text-green-400 font-medium"
                 >
                   Message sent successfully! I'll get back to you soon.
                 </motion.div>

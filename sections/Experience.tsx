@@ -56,7 +56,7 @@ export const Experience = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold  dark:text-white mb-4">
             Professional Experience
           </h2>
           <div className="w-20 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto"></div>
@@ -86,7 +86,7 @@ export const Experience = () => {
                   className={`w-full md:w-5/12 ${index % 2 === 0 ? "md:pr-8" : "md:pl-8"}`}
                 >
                   <motion.div
-                    className="bg-gray-50 dark:bg-gray-800 rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow duration-300"
+                    className=" dark:bg-gray-800 rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow duration-300"
                     whileHover={{ scale: 1.02 }}
                     transition={{ duration: 0.3 }}
                   >
@@ -95,16 +95,16 @@ export const Experience = () => {
                         <MapPin className="w-6 h-6 text-white" />
                       </div>
                       <div>
-                        <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+                        <h3 className="text-xl font-semibold  dark:text-white">
                           {exp.role}
                         </h3>
-                        <p className="text-blue-600 dark:text-blue-400 font-medium">
+                        <p className="text-blue-400 font-medium">
                           {exp.company}
                         </p>
                       </div>
                     </div>
 
-                    <div className="flex items-center text-gray-500 dark:text-gray-400 mb-4">
+                    <div className="flex items-center  dark:text-gray-400 mb-4">
                       <Calendar className="w-4 h-4 mr-2" />
                       <span className="text-sm">{exp.duration}</span>
                     </div>
@@ -113,7 +113,7 @@ export const Experience = () => {
                       {exp.achievements.map((achievement, i) => (
                         <li
                           key={i}
-                          className="text-gray-600 dark:text-gray-300 text-sm flex items-start"
+                          className=" dark:text-gray-300 text-sm flex items-start"
                         >
                           <span className="w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0"></span>
                           {achievement}
