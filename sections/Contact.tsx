@@ -56,7 +56,7 @@ export const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 bg-gray-50 dark:bg-gray-800">
+    <section id="contact" className="py-20 bg-transparent">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -78,6 +78,7 @@ export const Contact = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
+            className="text-center"
           >
             <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">
               Let's Connect
@@ -93,7 +94,7 @@ export const Contact = () => {
                 <motion.a
                   key={info.label}
                   href={info.href}
-                  className="flex items-center p-4 bg-white dark:bg-gray-700 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
+                  className="flex items-center p-4  dark:bg-gray-700 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
@@ -122,7 +123,7 @@ export const Contact = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="bg-white dark:bg-gray-900 rounded-lg shadow-md p-8"
+            className=" dark:bg-gray-900 rounded-lg shadow-md p-8"
           >
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
               <div>
@@ -136,7 +137,7 @@ export const Contact = () => {
                   type="text"
                   id="name"
                   {...register("name", { required: "Name is required" })}
-                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
+                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent  dark:bg-gray-800 text-gray-900 dark:text-white"
                   placeholder="Your name"
                 />
                 {errors.name && (
@@ -163,7 +164,7 @@ export const Contact = () => {
                       message: "Invalid email address",
                     },
                   })}
-                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
+                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent  dark:bg-gray-800 text-gray-900 dark:text-white"
                   placeholder="your.email@example.com"
                 />
                 {errors.email && (
@@ -184,7 +185,7 @@ export const Contact = () => {
                   id="message"
                   rows={5}
                   {...register("message", { required: "Message is required" })}
-                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white resize-none"
+                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent  dark:bg-gray-800 text-gray-900 dark:text-white resize-none"
                   placeholder="Your message..."
                 />
                 {errors.message && (

@@ -2,9 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Moon, Sun } from "lucide-react";
-import { Button } from "./Button";
-import { useTheme } from "./ThemeProvider";
+import { Menu, X } from "lucide-react";
 
 const navItems = [
   { name: "Home", href: "#home" },
@@ -18,7 +16,6 @@ const navItems = [
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -44,9 +41,7 @@ export const Navbar = () => {
   return (
     <motion.nav
       className={`fixed top-0 w-full z-50 transition-all duration-300 bg-red ${
-        scrolled
-          ? "bg-white/90 dark:bg-gray-900/90 backdrop-blur-md shadow-lg"
-          : "bg-transparent"
+        scrolled ? "  backdrop-blur-md shadow-lg" : "bg-transparent"
       }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
@@ -72,26 +67,10 @@ export const Navbar = () => {
                 {item.name}
               </button>
             ))}
-            {/* <Button
-              onClick={toggleTheme}
-              variant="outline"
-              size="sm"
-              className="p-2 cursor-pointer"
-            >
-              {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
-            </Button> */}
           </div>
 
           {/* Mobile menu button */}
           <div className="md:hidden flex items-center space-x-2">
-            {/* <Button
-              onClick={toggleTheme}
-              variant="outline"
-              size="sm"
-              className="p-2"
-            >
-              {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
-            </Button> */}
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 cursor-pointer"
@@ -106,7 +85,7 @@ export const Navbar = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="md:hidden bg-white dark:bg-gray-900 shadow-lg"
+            className="md:hidden  shadow-lg"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}

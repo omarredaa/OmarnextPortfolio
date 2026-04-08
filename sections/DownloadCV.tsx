@@ -124,7 +124,7 @@ export const DownloadCV = ({ specialization }: DownloadCVProps) => {
   const description = getDescription();
 
   return (
-    <section className="py-20 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-900 dark:to-gray-800">
+    <section className="py-20 bg-transparent">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -153,7 +153,7 @@ export const DownloadCV = ({ specialization }: DownloadCVProps) => {
             viewport={{ once: true }}
             className="space-y-8"
           >
-            <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8">
+            <div className=" dark:bg-gray-800 rounded-lg shadow-lg p-8">
               <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">
                 What You'll Find
               </h3>
@@ -194,7 +194,7 @@ export const DownloadCV = ({ specialization }: DownloadCVProps) => {
             viewport={{ once: true }}
             className="text-center lg:text-left"
           >
-            <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8">
+            <div className=" dark:bg-gray-800 rounded-lg shadow-lg p-8">
               <div className="mb-8">
                 <div className="w-20 h-20 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center mx-auto lg:mx-0 mb-6">
                   <FileText className="w-10 h-10 text-white" />

@@ -3,6 +3,13 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  color-scheme: light;
+}
+
+.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  color-scheme: dark;
 }
 
 @theme inline {
@@ -12,19 +19,14 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 * {
   box-sizing: border-box;
 }
 
 html {
   scroll-behavior: smooth;
+  /* Prevent flash of unstyled content during theme switch */
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 body {
@@ -32,6 +34,12 @@ body {
   color: var(--foreground);
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
   line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Smooth transitions for all theme-aware elements */
+.dark-mode-transition {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* Custom scrollbar */
@@ -43,9 +51,210 @@ body {
   background: #f1f1f1;
 }
 
+.dark ::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
 ::-webkit-scrollbar-thumb {
   background: linear-gradient(135deg, #4e54c8, #8f94fb);
   border-radius: 4px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #6366f1, #a855f7);
+}
+
+/* Star animations */
+@keyframes float1 {
+
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  25% {
+    transform: translate(30px, -20px) scale(1.1);
+  }
+
+  50% {
+    transform: translate(-10px, 40px) scale(0.9);
+  }
+
+  75% {
+    transform: translate(20px, -30px) scale(1.05);
+  }
+}
+
+@keyframes float2 {
+
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  33% {
+    transform: translate(-25px, 35px) scale(0.95);
+  }
+
+  66% {
+    transform: translate(40px, -15px) scale(1.1);
+  }
+}
+
+@keyframes float3 {
+
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate(15px, 25px) scale(0.9);
+  }
+}
+
+@keyframes float4 {
+
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+
+  25% {
+    transform: translate(35px, 15px) rotate(90deg) scale(1.15);
+  }
+
+  50% {
+    transform: translate(-20px, -25px) rotate(180deg) scale(0.85);
+  }
+
+  75% {
+    transform: translate(10px, 30px) rotate(270deg) scale(1.1);
+  }
+}
+
+@keyframes float5 {
+
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  20% {
+    transform: translate(25px, -10px) scale(1.2);
+  }
+
+  40% {
+    transform: translate(-15px, 20px) scale(0.8);
+  }
+
+  60% {
+    transform: translate(30px, 10px) scale(1.1);
+  }
+
+  80% {
+    transform: translate(-5px, -15px) scale(0.95);
+  }
+}
+
+@keyframes twinkle-bright {
+
+  0%,
+  100% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.3);
+  }
+}
+
+@keyframes twinkle-medium {
+
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.8;
+    transform: scale(1.2);
+  }
+}
+
+@keyframes twinkle-dim {
+
+  0%,
+  100% {
+    opacity: 0.2;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.6;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes shooting-star {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) scale(1);
+  }
+
+  10% {
+    opacity: 1;
+    transform: translate(var(--end-x), var(--end-y)) scale(1.5);
+  }
+
+  90% {
+    opacity: 1;
+    transform: translate(var(--end-x), var(--end-y)) scale(0.5);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(var(--end-x), var(--end-y)) scale(0);
+  }
+}
+
+.star-float-1 {
+  animation: float1 25s ease-in-out infinite;
+}
+
+.star-float-2 {
+  animation: float2 30s ease-in-out infinite;
+}
+
+.star-float-3 {
+  animation: float3 35s ease-in-out infinite;
+}
+
+.star-float-4 {
+  animation: float4 28s ease-in-out infinite;
+}
+
+.star-float-5 {
+  animation: float5 32s ease-in-out infinite;
+}
+
+.star-twinkle-bright {
+  animation: twinkle-bright 4s ease-in-out infinite;
+}
+
+.star-twinkle-medium {
+  animation: twinkle-medium 5s ease-in-out infinite;
+}
+
+.star-twinkle-dim {
+  animation: twinkle-dim 6s ease-in-out infinite;
+}
+
+.star-shooting {
+  animation: shooting-star linear infinite;
 }
 
 ::-webkit-scrollbar-thumb:hover {

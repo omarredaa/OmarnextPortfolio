@@ -18,18 +18,48 @@ export const Footer = () => {
     footerDescriptions[specialization] || footerDescriptions.frontend;
 
   return (
-    <footer className="bg-gray-900 text-white py-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <footer className="relative overflow-hidden py-12">
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-50/20 via-transparent to-purple-50/20 dark:from-gray-900/20 dark:via-transparent dark:to-gray-900/20 pointer-events-none">
+        <motion.div
+          className="absolute top-20 left-20 w-72 h-72 bg-gradient-to-r from-blue-400/10 to-purple-400/10 rounded-full blur-3xl"
+          animate={{
+            x: [0, 100, 0],
+            y: [0, -50, 0],
+          }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            ease: "linear",
+          }}
+        />
+        <motion.div
+          className="absolute bottom-20 right-20 w-96 h-96 bg-gradient-to-r from-purple-400/10 to-pink-400/10 rounded-full blur-3xl"
+          animate={{
+            x: [0, -100, 0],
+            y: [0, 50, 0],
+          }}
+          transition={{
+            duration: 25,
+            repeat: Infinity,
+            ease: "linear",
+          }}
+        />
+      </div>
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-center items-center flex-col md:flex-row md:justify-between gap-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="text-center text-wrap w-[80%] md:w-[30%] mb-5"
+            className="text-center text-wrap w-[80%] md:w-[30%] mb-5 "
           >
-            <h3 className="text-2xl font-bold mb-4">{personalInfo.name}</h3>
-            <p className="text-gray-400">{footerDescription}</p>
+            <h3 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">
+              {personalInfo.name}
+            </h3>
+            <p className="text-gray-600 dark:text-gray-400">
+              {footerDescription}
+            </p>
           </motion.div>
 
           <motion.div
@@ -38,12 +68,14 @@ export const Footer = () => {
             transition={{ duration: 0.8, delay: 0.1 }}
             viewport={{ once: true }}
           >
-            <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
-            <ul className="space-y-3 text-gray-400">
+            <h4 className="text-lg font-semibold mb-4 text-gray-900 dark:text-white">
+              Quick Links
+            </h4>
+            <ul className="space-y-3 text-gray-600 dark:text-gray-400">
               <li>
                 <a
                   href="#home"
-                  className="flex items-center hover:text-white transition-colors duration-300"
+                  className="flex items-center text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors duration-300"
                 >
                   <Home className="w-4 h-4 mr-2" />
                   Home
@@ -52,7 +84,7 @@ export const Footer = () => {
               <li>
                 <a
                   href="#about"
-                  className="flex items-center hover:text-white transition-colors duration-300"
+                  className="flex items-center text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors duration-300"
                 >
                   <User className="w-4 h-4 mr-2" />
                   About
@@ -61,7 +93,7 @@ export const Footer = () => {
               <li>
                 <a
                   href="#skills"
-                  className="flex items-center hover:text-white transition-colors duration-300"
+                  className="flex items-center text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors duration-300"
                 >
                   <Code className="w-4 h-4 mr-2" />
                   Skills
@@ -70,7 +102,7 @@ export const Footer = () => {
               <li>
                 <a
                   href="#projects"
-                  className="flex items-center hover:text-white transition-colors duration-300"
+                  className="flex items-center text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors duration-300"
                 >
                   <Briefcase className="w-4 h-4 mr-2" />
                   Projects
@@ -79,7 +111,7 @@ export const Footer = () => {
               <li>
                 <a
                   href="#experience"
-                  className="flex items-center hover:text-white transition-colors duration-300"
+                  className="flex items-center text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors duration-300"
                 >
                   <Briefcase className="w-4 h-4 mr-2" />
                   Experience
@@ -88,7 +120,7 @@ export const Footer = () => {
               <li>
                 <a
                   href="#contact"
-                  className="flex items-center hover:text-white transition-colors duration-300"
+                  className="flex items-center text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors duration-300"
                 >
                   <Mail className="w-4 h-4 mr-2" />
                   Contact
@@ -104,13 +136,15 @@ export const Footer = () => {
             viewport={{ once: true }}
             className="text-center"
           >
-            <h4 className="text-lg font-semibold mb-4">Connect With Me</h4>
+            <h4 className="text-lg font-semibold mb-4 text-gray-900 dark:text-white">
+              Connect With Me
+            </h4>
             <div className="flex justify-center space-x-6">
               <a
                 href={personalInfo.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-white transition-colors duration-300 hover:scale-110 transform"
+                className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors duration-300 hover:scale-110 transform"
               >
                 <FaGithub size={24} />
               </a>
@@ -118,13 +152,13 @@ export const Footer = () => {
                 href={personalInfo.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-white transition-colors duration-300 hover:scale-110 transform"
+                className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors duration-300 hover:scale-110 transform"
               >
                 <FaLinkedin size={24} />
               </a>
               <a
                 href={`mailto:${personalInfo.email}`}
-                className="text-gray-400 hover:text-white transition-colors duration-300 hover:scale-110 transform"
+                className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors duration-300 hover:scale-110 transform"
               >
                 <Mail size={24} />
               </a>
@@ -139,11 +173,13 @@ export const Footer = () => {
             className="text-right"
           >
             <div className="flex flex-col items-end space-y-2">
-              <p className="text-gray-400 flex items-center">
+              <p className="text-gray-600 dark:text-gray-400 flex items-center">
                 Made with <Heart className="w-4 h-4 mx-1 text-red-500" /> by{" "}
-                <span className="font-semibold ml-1">{personalInfo.name}</span>
+                <span className="font-semibold ml-1 text-gray-900 dark:text-white">
+                  {personalInfo.name}
+                </span>
               </p>
-              <p className="text-gray-400 text-sm">
+              <p className="text-gray-600 dark:text-gray-400 text-sm">
                 © {currentYear} All rights reserved.
               </p>
             </div>

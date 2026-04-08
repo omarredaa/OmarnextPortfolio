@@ -4,6 +4,7 @@ import "./globals.css";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { Providers } from "../components/Providers";
+import { UnifiedBackground } from "../components/UnifiedBackground";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -53,6 +54,7 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col">
         <Providers>
+          <UnifiedBackground />
           <Navbar />
           <main className="flex-1">{children}</main>
           <Footer />
