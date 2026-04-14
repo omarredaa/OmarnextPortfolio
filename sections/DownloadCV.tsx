@@ -124,101 +124,104 @@ export const DownloadCV = ({ specialization }: DownloadCVProps) => {
   const description = getDescription();
 
   return (
-    <section className="py-20 bg-transparent" id="cv">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section
+      id="cv"
+      className="relative py-24 overflow-hidden bg-gradient-to-b from-[#0f172a] via-[#0b1120] to-black"
+    >
+      {/* Glow Background */}
+      <div className="absolute top-[-100px] right-[-100px] w-[300px] h-[300px] bg-blue-500 opacity-20 blur-3xl rounded-full"></div>
+      <div className="absolute bottom-[-100px] left-[-100px] w-[300px] h-[300px] bg-purple-500 opacity-20 blur-3xl rounded-full"></div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.7 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          <h2 className="text-4xl sm:text-5xl font-extrabold text-white mb-4">
             Download My CV
           </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-8"></div>
-          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            Get a comprehensive overview of my skills, experience, and projects.
-            Download my professional CV to learn more about my background and
-            expertise.
+          <p className="text-gray-400 max-w-2xl mx-auto mb-6">
+            Get a comprehensive overview of my skills, experience, and projects
           </p>
+          <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full"></div>
         </motion.div>
 
+        {/* Main Content */}
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* CV Preview/Highlights */}
+          {/* Download Card */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="space-y-8"
+            className="group p-8 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-lg hover:bg-white/10 transition-all duration-300 shadow-lg hover:shadow-blue-500/20"
           >
-            <div className=" dark:bg-gray-800 rounded-lg shadow-lg p-8">
-              <h3 className="text-2xl font-semibold  dark:text-white mb-6">
-                What You'll Find
+            <div className="flex flex-col items-center text-center">
+              <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                <FileText className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-2xl font-semibold text-white mb-4">
+                Professional CV
               </h3>
-              <div className="grid gap-6">
-                {highlights.map((highlight, index) => (
-                  <motion.div
-                    key={highlight.title}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                    className="flex items-start space-x-4"
-                  >
-                    <div className="flex-shrink-0">
-                      <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg flex items-center justify-center">
-                        <highlight.icon className="w-6 h-6 text-white" />
-                      </div>
-                    </div>
-                    <div>
-                      <h4 className="text-lg font-semibold  dark:text-white">
-                        {highlight.title}
-                      </h4>
-                      <p className=" dark:text-gray-300">
-                        {highlight.description}
-                      </p>
-                    </div>
-                  </motion.div>
-                ))}
+              <p className="text-gray-400 mb-8 leading-relaxed">
+                {description}
+              </p>
+
+              <div className="w-full space-y-4">
+                <Button
+                  onClick={handleDownload}
+                  size="lg"
+                  className="w-full cursor-pointer flex items-center justify-center gap-2"
+                >
+                  <Download className="w-5 h-5" />
+                  Download CV
+                </Button>
+                <p className="text-sm text-gray-500">
+                  PDF format • Last updated: {new Date().toLocaleDateString()}
+                </p>
               </div>
             </div>
           </motion.div>
 
-          {/* Download Section */}
+          {/* Highlights */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="text-center lg:text-left"
+            className="space-y-4"
           >
-            <div className=" dark:bg-gray-800 rounded-lg shadow-lg p-8">
-              <div className="mb-8">
-                <div className="w-20 h-20 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center mx-auto lg:mx-0 mb-6">
-                  <FileText className="w-10 h-10 text-white" />
-                </div>
-                <h3 className="text-2xl font-semibold  dark:text-white mb-4">
-                  Professional CV
-                </h3>
-                <p className=" dark:text-gray-300 mb-6">{description}</p>
-              </div>
-
-              <div className="space-y-4">
-                <Button
-                  onClick={handleDownload}
-                  size="lg"
-                  className="w-full lg:w-auto cursor-pointer flex items-center justify-center"
+            {highlights.map((highlight, index) => {
+              const Icon = highlight.icon;
+              return (
+                <motion.div
+                  key={highlight.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className="group p-6 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-lg hover:bg-white/10 transition-all duration-300 shadow-lg hover:shadow-purple-500/20"
                 >
-                  <Download className="w-5 h-5 mr-2" />
-                  Download CV
-                </Button>
-                <p className="text-sm  dark:text-gray-400">
-                  PDF format • Updated regularly
-                </p>
-              </div>
-            </div>
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                      <Icon className="w-6 h-6 text-white" />
+                    </div>
+                    <div className="flex-1">
+                      <h4 className="text-lg font-semibold text-white mb-1 group-hover:text-blue-300 transition-colors">
+                        {highlight.title}
+                      </h4>
+                      <p className="text-gray-400 text-sm">
+                        {highlight.description}
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
+              );
+            })}
           </motion.div>
         </div>
       </div>

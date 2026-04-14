@@ -17,100 +17,101 @@ export const Projects = () => {
     projectRoleLabels[specialization] || projectRoleLabels.frontend;
 
   return (
-    <section id="projects" className="py-20 bg-transparent">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section
+      id="projects"
+      className="relative py-24 overflow-hidden bg-gradient-to-b from-[#0f172a] via-[#0b1120] to-black"
+    >
+      {/* Glow Background */}
+      <div className="absolute top-[-100px] left-[-100px] w-[300px] h-[300px] bg-blue-500 opacity-20 blur-3xl rounded-full"></div>
+      <div className="absolute bottom-[-100px] right-[-100px] w-[300px] h-[300px] bg-purple-500 opacity-20 blur-3xl rounded-full"></div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.7 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
-          <h2 className="text-3xl sm:text-4xl font-bold  dark:text-white mb-4">
+          <h2 className="text-4xl sm:text-5xl font-extrabold text-white mb-4">
             Featured Projects
           </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto"></div>
+          <p className="text-gray-400 max-w-xl mx-auto mb-6">
+            Showcasing innovative solutions built with modern technologies
+          </p>
+          <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full"></div>
         </motion.div>
 
-        <div className="flex justify-center flex-wrap gap-8">
+        {/* Projects Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <motion.div
               key={project.id}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: index * 0.1 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className=" dark:bg-gray-900 rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 w-[80%] sm:w-[45%] lg:w-[30%] "
+              className="group overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-lg hover:bg-white/10 transition-all duration-300 shadow-lg hover:shadow-blue-500/20 flex flex-col"
             >
+              {/* Image Container */}
               <motion.div
-                className="relative overflow-hidden"
+                className="relative overflow-hidden h-48"
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3 }}
               >
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-48 object-cover"
+                  className="w-full h-full object-cover"
                 />
-                {/* <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center space-x-4">
-                  <a
-                    href={project.liveDemo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-2 bg-white rounded-full text-gray-900 hover:bg-gray-100 transition-colors duration-300"
-                  >
-                    <ExternalLink size={20} />
-                  </a>
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-2 bg-white rounded-full text-gray-900 hover:bg-gray-100 transition-colors duration-300"
-                  >
-                    <FaGithub size={20} />
-                  </a>
-                </div> */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </motion.div>
 
-              <div className="p-6">
-                <h3 className="text-xl font-semibold text-white mb-2">
+              {/* Content */}
+              <div className="p-6 flex-1 flex flex-col">
+                <div className="mb-3">
+                  <p className="text-xs uppercase tracking-[0.15em] text-blue-400 font-semibold">
+                    {projectRole}
+                  </p>
+                </div>
+                <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-blue-300 transition-colors">
                   {project.title}
                 </h3>
-                <p className="text-sm uppercase tracking-[0.2em] text-blue-400 font-medium mb-2">
-                  {projectRole}
-                </p>
-                <p className=" dark:text-gray-300 mb-4">
+                <p className="text-gray-400 text-sm mb-4 flex-1">
                   {project.description}
                 </p>
 
-                <div className="flex flex-wrap gap-2 mb-4">
+                {/* Tech Stack */}
+                <div className="flex flex-wrap gap-2 mb-5">
                   {project.techStack.map((tech) => (
                     <span
                       key={tech}
-                      className="px-3 py-1 bg-blue-900 text-blue-200 text-sm rounded-full"
+                      className="px-2.5 py-1 bg-white/5 border border-blue-400/30 text-blue-300 text-xs rounded-full hover:bg-white/10 transition-all"
                     >
                       {tech}
                     </span>
                   ))}
                 </div>
 
-                <div className="flex space-x-4">
+                {/* Links */}
+                <div className="flex gap-3 pt-4 border-t border-white/10">
                   <a
                     href={project.liveDemo}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center text-blue-400 hover:text-blue-300 transition-colors duration-300"
+                    className="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-gradient-to-r from-blue-500 to-purple-500 text-white text-sm font-medium hover:shadow-lg hover:shadow-blue-500/30 transition-all"
                   >
-                    <ExternalLink size={16} className="mr-1" />
+                    <ExternalLink size={14} />
                     Live Demo
                   </a>
                   <a
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center text-gray-400 hover:text-gray-300 transition-colors duration-300"
+                    className="flex items-center gap-1.5 px-3 py-2 rounded-lg border border-white/20 text-gray-300 text-sm font-medium hover:bg-white/10 transition-all"
                   >
-                    <FaGithub size={16} className="mr-1" />
+                    <FaGithub size={14} />
                     Code
                   </a>
                 </div>

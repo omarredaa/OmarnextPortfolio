@@ -44,61 +44,57 @@ export const Hero = () => {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center justify-center relative overflow-hidden bg-transparent"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-[#0f172a] via-[#0b1120] to-black"
     >
       <ScrollToTop />
-      {/* Background gradient animation - only for Hero section */}
-      <div className="absolute inset-0 bg-gradient-to-br   dark:from-gray-900/30 dark:via-transparent dark:to-gray-900/30 pointer-events-none">
-        <motion.div
-          className="absolute top-20 left-20 w-72 h-72 bg-gradient-to-r from-blue-400/10 to-purple-400/10 rounded-full blur-3xl"
-          animate={{
-            x: [0, 100, 0],
-            y: [0, -50, 0],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-        />
-        <motion.div
-          className="absolute bottom-20 right-20 w-96 h-96 bg-gradient-to-r from-purple-400/10 to-pink-400/10 rounded-full blur-3xl"
-          animate={{
-            x: [0, -100, 0],
-            y: [0, 50, 0],
-          }}
-          transition={{
-            duration: 25,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-        />
-      </div>
 
-      <div className="relative z-10 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto mt-36">
-        <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-12">
+      {/* Glow Background Elements */}
+      <div className="absolute top-[-100px] left-[-100px] w-[400px] h-[400px] bg-blue-500 opacity-20 blur-3xl rounded-full"></div>
+      <div className="absolute bottom-[-100px] right-[-100px] w-[400px] h-[400px] bg-purple-500 opacity-20 blur-3xl rounded-full"></div>
+
+      <div className="relative z-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto py-20">
+        <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-16">
           {/* Text Content */}
           <motion.div
             className="flex-1 text-center lg:text-left lg:order-1"
-            initial={{ opacity: 0, x: -50 }}
+            initial={{ opacity: 0, x: -60 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold  dark:text-white mb-4">
+            <motion.h1
+              className="text-5xl sm:text-6xl lg:text-7xl font-extrabold text-white mb-6 leading-tight"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
               Hi, I'm{" "}
-              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
                 {personalInfo.name}
               </span>
-            </h1>
-            <h2 className="text-xl sm:text-2xl lg:text-3xl  dark:text-gray-300 mb-6">
+            </motion.h1>
+
+            <motion.h2
+              className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-gray-300 mb-6"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+            >
               {title}
-            </h2>
-            <p className="text-base sm:text-lg  dark:text-gray-400 mb-4 max-w-2xl mx-auto lg:mx-0">
-              {detail}
-            </p>
-            <p className="text-lg sm:text-xl  dark:text-gray-400 mb-8 max-w-2xl mx-auto lg:mx-0">
-              {personalInfo.tagline}
-            </p>
+            </motion.h2>
+
+            <motion.div
+              className="space-y-4 mb-8"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+            >
+              <p className="text-lg text-gray-400 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                {detail}
+              </p>
+              <p className="text-xl text-gray-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                {personalInfo.tagline}
+              </p>
+            </motion.div>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -117,61 +113,23 @@ export const Hero = () => {
                 Contact Me
               </Button>
             </motion.div>
-
-            {/* <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.8 }}
-              className="flex justify-center lg:justify-start space-x-6 mb-12"
-            >
-              <a
-                href={personalInfo.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-blue-400 transition-colors duration-300"
-              >
-                <FaGithub size={24} />
-              </a>
-              <a
-                href={personalInfo.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-blue-400 transition-colors duration-300"
-              >
-                <FaLinkedin size={24} />
-              </a>
-            </motion.div> */}
           </motion.div>
 
           {/* Photo */}
           <motion.div
             className="flex-shrink-0 lg:order-2"
-            initial={{ opacity: 0, x: 50 }}
+            initial={{ opacity: 0, x: 60 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            {/* <div className="relative"> */}
-            {/* <div className="w-64 h-64 sm:w-80 sm:h-80 rounded-full overflow-hidden border-4 border-white dark:border-gray-700 shadow-2xl flex justify-center items-center bg-[#09090b]">
-                <img
-                  src={personalInfo.photo}
-                  alt={personalInfo.name}
-                  //   className="w-full h-full object-cover rounded-full"
-                  className="w-full h-full object-contain rounded-full"
-                />
-              </div> */}
-            {/* <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center shadow-lg">
-                <span className="text-white font-bold text-lg">👋</span>
-              </div> */}
-            {/* </div> */}
-
             <div className="relative">
               {/* Outer glow */}
-              <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-blue-500/20 via-purple-500/20 to-transparent blur-2xl"></div>
+              <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-blue-500/30 via-purple-500/30 to-transparent blur-3xl"></div>
 
               {/* Main container */}
-              <div className="relative w-64 h-64 sm:w-80 sm:h-80 rounded-full p-[5px] bg-gradient-to-tr from-gray-800 via-gray-900 to-black shadow-2xl">
+              <div className="relative w-64 h-64 sm:w-80 sm:h-80 rounded-full p-[3px] bg-gradient-to-tr from-blue-500 via-purple-500 to-blue-500 shadow-2xl shadow-blue-500/50">
                 {/* Inner circle */}
-                <div className="w-full h-full rounded-full bg-[#09090b] flex items-center justify-center overflow-hidden">
+                <div className="w-full h-full rounded-full bg-[#0a0a0c] flex items-center justify-center overflow-hidden border border-white/10">
                   <img
                     src={personalInfo.photo}
                     alt={personalInfo.name}
@@ -183,19 +141,14 @@ export const Hero = () => {
           </motion.div>
         </div>
 
-        {/* <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 1 }}
-          className="text-center mt-16"
+        {/* Scroll Indicator */}
+        <motion.div
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+          animate={{ y: [0, 10, 0] }}
+          transition={{ duration: 2, repeat: Infinity }}
         >
-          <button
-            onClick={() => scrollToSection("#about")}
-            className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors duration-300 animate-bounce"
-          >
-            <ChevronDown size={32} />rrr
-          </button>
-        </motion.div> */}
+          <ChevronDown size={24} className="text-blue-400" />
+        </motion.div>
       </div>
     </section>
   );
